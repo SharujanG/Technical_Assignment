@@ -1,5 +1,3 @@
-import java.util.List;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,14 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartAndCheckoutTest {
 	private WebDriver driver;
-	private WebElement totalElement;
-
 	@Before
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver",
@@ -49,9 +43,9 @@ public class CartAndCheckoutTest {
 		WebElement product = driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[2]/div[1]/a[1]/img"));
 		product.click();
 
-		WebElement quantityInput = driver.findElement(By.id("quantity_65bb9601ad7b4"));
-		quantityInput.clear();
-		quantityInput.sendKeys("4");
+//		WebElement quantityInput = driver.findElement(By.xpath("//*[@id=\"quantity_65bbc28bc08d0\"]")); 
+//		quantityInput.clear();
+//		quantityInput.sendKeys("4");
 
 		WebElement addToCartButton = driver
 				.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/main/div/div[2]/div[2]/form/button"));
@@ -112,13 +106,15 @@ public class CartAndCheckoutTest {
 		WebElement orderNotesField = driver.findElement(By.id("order_comments"));
 		orderNotesField.sendKeys("Please keep this safely.");
 
-		WebElement codRadioButton = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/main/article/div/div/section[2]/div/div/div/div/div/div/div/form[3]/div[3]/div/ul/li[1]/label"));
-		codRadioButton.click();
+		WebElement codRadioButton = driver.findElement(By.id("payment_method_bacs"));
+//		codRadioButton.click();
 
 		Assert.assertTrue(codRadioButton.isSelected());
 
-		WebElement placeOrderButton = driver.findElement(By.xpath("//*[@id=\"payment_method_bacs\"]"));
+		WebElement placeOrderButton = driver.findElement(By.cssSelector("#place_order"));
 		placeOrderButton.click();
+		
+		
 
 	}
 
