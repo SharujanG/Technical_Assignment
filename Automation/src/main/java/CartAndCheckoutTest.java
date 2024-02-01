@@ -43,9 +43,9 @@ public class CartAndCheckoutTest {
 		WebElement product = driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[2]/div[1]/a[1]/img"));
 		product.click();
 
-//		WebElement quantityInput = driver.findElement(By.xpath("//*[@id=\"quantity_65bbc28bc08d0\"]")); 
-//		quantityInput.clear();
-//		quantityInput.sendKeys("4");
+		WebElement quantityInput = driver.findElement(By.xpath("//*[@id=\"quantity_65bbc28bc08d0\"]")); 
+		quantityInput.clear();
+		quantityInput.sendKeys("4");
 
 		WebElement addToCartButton = driver
 				.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/main/div/div[2]/div[2]/form/button"));
